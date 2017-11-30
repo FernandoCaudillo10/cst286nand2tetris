@@ -3,17 +3,10 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/02/HalfAdder.hdl
 
-/**
- * Half adder. Computes sum, the least significnat bit of a + b,
-  * and carry, the most significnat bit of a + b.
-   */
-
-   CHIP HalfAdder {
+CHIP HalfAdder {
 		IN a, b;
 		OUT s, c;
-
-		PARTS:
-			Xor(a=a, b=b, out=s);
-			And(a=a, b=b, out=c);
-
-   }
+	PARTS:
+		Xor(a=a, b=b, out=s);
+		And(a=a, b=b, out=c);
+}
