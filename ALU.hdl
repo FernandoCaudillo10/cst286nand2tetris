@@ -1,0 +1,32 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/ALU.hdl
+
+//The way I came to understand how some of the ALU parts worked
+//	were by going one by one on someone elses code, writing it myself,
+//	then commenting out parts and testing different bits to make sure I
+//	understand. I had a lot of trouble trying to implement without looking
+//	up others code.
+
+CHIP ALU {
+    IN  
+        x[16], y[16], zx, nx, zy, ny, f, no; 
+
+    OUT 
+        out[16], zr, ng;
+
+    PARTS:
+    
+		//Done by me and fully understand.
+		
+		Mux16(a=x, b=false, sel=zx, out=zeroX);
+		Mux16(a=y, b=false, sel=zy, out=zeroY);
+
+		Not16(in=zeroX, out=nX);
+		Mux16(a=zeroX, b=notX, sel=nx, out=nX16);
+
+		Not16(in=zeroY, out=nY);
+		Mux16(a=zeroY, b=notY, sel=ny, out=nY16);
+		
+}
